@@ -16,14 +16,14 @@ def register(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
-            # return redirect('login')
+            return redirect('login')
 
     return render(request,'webapp/register.html', {
         "form":form,
     })
 #----------Login-------
 
-def login(request):
+def login_view(request):
     form =LoginForm()
     if request.method =="POST":
         form = LoginForm(request,data = request.POST)
@@ -34,10 +34,19 @@ def login(request):
             user = authenticate(request, username = username ,password = password)
             if user is not None:
                 auth.login(request,user)
-                # return redirect('dashboard')
+                return redirect('dashboard')
     return render(request,'webapp/login.html',{
         'form':form,
-    })        
+    })   
+
+def dashboard(request):
+    return render(request,'webapp/dashboard.html') 
+
+def logout_view(request):
+    logout(request)
+    return render(request,'webapp/index.html',{
+        "message":"Logged Out"
+    })    
         
 
 
