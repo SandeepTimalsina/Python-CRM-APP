@@ -3,7 +3,7 @@
 <body>
     <h5>Welcome to the Dashboard page --{{user}}</h5>
     <hr />
-    <a class="btn btn-outline-primary btn-sm" href = "{% url 'create_record'%}">Create a new Record</a>
+    <a class="btn btn-outline-primary btn-sm" href = "{% url 'create_record'%}">  <i class="fa fa-plus-circle" aria-hidden="true">&nbsp;</i>Create a new Record</a>
     <hr/>
 
     <table class="table table-hover table-bordered">
@@ -35,7 +35,7 @@
                 <td>{{record.province}}</td>
                 <td>{{record.country}}</td>
                 <td>{{record.creation_date}}</td>
-                <td><a href ="{% url 'record' record.id %}" >Click me</a></td>
+                <td><a href ="{% url 'record' record.id %}" ><i class="fa fa-eye" aria-hidden="true"></i></a></td>
 
             </tr>
             {% endfor %}

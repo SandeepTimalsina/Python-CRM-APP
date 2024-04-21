@@ -11,17 +11,25 @@
       href="https://bootswatch.com/5/flatly/bootstrap.min.css"
     />
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Add any additional meta tags, CSS or JavaScript links here -->
   </head>
 
   <body>
     <!---Create navbar here-->
     {% include 'webapp/navbar.html'%}
+
     <div class="container">
-      <br />
-      
-      <p>{{message}}</P>
       <!--Notification messages-->
+      {% for message in messages %}
+      {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+      <p id="message-timer" class="alert alert-success float-center text-center message-text">
+        <i class="fa fa-check-circle-o" aria-hidden="true"></i> &nbsp; 
+        {{message}}
+      </p>
+      {% endif %}
+      {% endfor %}
+      <br/>
     </div>
     <div>{% block content %} {% endblock %}</div>
     <script src="{% static 'js/app.js' %}"></script>

@@ -4,15 +4,15 @@
 
 
 <div class="card">
-    <strong>
-        <br/>
-        &nbsp;
-        {{record.last_name|upper}}
-        &nbsp;
-        {{record.first_name}}
-    </strong>
-    <hr/>
     <div class="card-body">
+        <strong>
+            <i class="fa fa-user-o" aria-hidden="true"></i>
+            &nbsp;
+            {{record.last_name|upper}}
+            &nbsp;
+            {{record.first_name}}
+        </strong>
+        <hr/>
         <p> <strong> ID :</strong>{{record.id}}</p>
         <p> <strong> Email :</strong>{{record.email}}</p>
         <p> <strong> Phone :</strong>{{record.phone}}</p>
@@ -30,7 +30,7 @@
      &nbsp;
 <a href="{% url 'update_record' record.id %}" class = "btn btn-info">Update record</a>
      &nbsp;
-<a href="{% url 'dashboard' %}" class = "btn btn-danger">Delete record</a>
+<a href="{% url 'delete_record' record.id %}" class = "btn btn-danger">Delete record</a>
     
 
 
